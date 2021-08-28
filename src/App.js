@@ -1,5 +1,8 @@
 import './App.css';
+import { Statewise  } from './components/table'; 
 import Countries from './components/Countries';
+import Map from './components/Maps';
+import { Stock } from './components/stock';
 import { useState } from 'react';
 
 function App() {
@@ -7,14 +10,18 @@ function App() {
   function countries(country) {
     Setcountry(country);
   }
+function latlon(lat,lon) {
+  
+}
   return (
     <div className="App">
-      <header className="header"> COUNTRY WISE COVID STATS</header>
+       <header className="header"> Geo Spatial Covid tracker</header> <br></br><br></br>
       <Countries myprops={countries} />
-       {/* {countryname === 'India' && <States />}  */}
+      <Map /> 
+      <Stock/>
       <footer className="footer">
         <p className="footerp">Mask up.Stay Safe.Stay Strong.</p>
-       {/*  <p className="footername">Covid tracker by Ajay</p> */}
+       <p className="footername">Made with love ♥ by TEAM QUANTA</p> 
        <p className="footername"></p>
       </footer>
     </div>
@@ -22,3 +29,5 @@ function App() {
 }
 
 export default App;
+
+

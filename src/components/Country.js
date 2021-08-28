@@ -53,16 +53,17 @@ const Country = (props) => {
   const [recoveredcases, setrecoveredcases] = useState('');
   const [deaths, setdeaths] = useState('');
   const [iso, setiso] = useState('');
-
+  const [lat, setlat] = useState('');
+  const [lon, setlon] = useState('');
   const country = async () => {
     try {
       const res = await fetch(
         `https://corona.lmao.ninja/v2/countries/${props.country}?yesterday=true&strict=true&query`
       );
       const jsondata = await res.json();
-
       seteachcountry(jsondata);
-
+      setlat(jsondata.countryInfo.lat)
+      setlon(jsondata.countryInfo.long);
       setactivecases(jsondata.active);
       setdeaths(jsondata.deaths);
       setrecoveredcases(jsondata.recovered);
@@ -89,6 +90,8 @@ const Country = (props) => {
     (recoveredcases / (activecases + recoveredcases + deaths)) *
     100
   ).toFixed(2);
+  //console.log(lat,lon);
+  props.degree(lat,lon);
 
   return (
     <Container>

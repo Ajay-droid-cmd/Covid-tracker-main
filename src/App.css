@@ -8,7 +8,7 @@
   color: white;
 }
 .App {
-  background-color: #14213d;
+  background-color:  #151319;
   width: 100%;
   height: 100%;
 }
@@ -28,7 +28,7 @@
 }
 .footer {
   margin-top: 10px;
-  background-color: lightskyblue;
+  background-color: rgb(16, 25, 31);
   text-align: end;
 }
 .footerp {
@@ -42,4 +42,19 @@
   font-style: italic;
   color: aliceblue;
   padding: 5px;
+}
+.btnx{
+  margin-left:40% ;
+}
+.uaresafe:hover{
+  background-color:rgb(235, 252, 0) !important;
+}
+.upsafe:hover{
+  background-color:rgba(252, 8, 0, 0.849) !important;
+}
+tr:hover{
+  background-color:rgb(0,0,0,0.5) !important;
+}
+th:hover{
+background-color:rgb(57, 255, 20,0.5) !important;
 }
