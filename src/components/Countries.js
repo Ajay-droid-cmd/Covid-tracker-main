@@ -3,8 +3,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { makeStyles, Select, Container } from "@material-ui/core";
 import Country from "./Country";
-import "./Map.css";
-import ReactMapGL from "react-map-gl";
+
+
 
 
 const useStyles = makeStyles({

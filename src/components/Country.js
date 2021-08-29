@@ -6,13 +6,17 @@ import {
   CardContent,
   Typography,
   Grid,
+  Button,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import Chart from '../charts/Chart';
-import Maps from "./Maps"
 const useStyles = makeStyles({
   grid: {
     marginTop: '10px',
+  },
+  btn : {
+    textDecoration: 'none',
+    marginLeft: '5px',
   },
   cardheader1: {
     color: 'orange',
@@ -164,8 +168,11 @@ const Country = (props) => {
           <Card>
             <CardContent>
               <Typography variant="subtitle1" className={classes.percent}>
-                The Recovery percentage of {props.country} is{' '}
+                The Recovery percentage  of {props.country} is{' '}
                 {recoverypercentage}%.
+                <Button className={classes.btn} variant="contained" color="primary">
+  <a href="https://covid-hack-v1.netlify.app/" >GSCT Link</a>
+</Button>
               </Typography>
             </CardContent>
           </Card>

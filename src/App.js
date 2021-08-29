@@ -1,7 +1,6 @@
 import './App.css';
 import { Statewise  } from './components/table'; 
 import Countries from './components/Countries';
-import Map from './components/Maps';
 import { Stock } from './components/stock';
 import { useState } from 'react';
 import Form from './components/Form'
@@ -15,9 +14,9 @@ function App() {
 // }
   return (
     <div className="App">
-       <header className="header"> Geo Spatial Covid tracker</header> <br></br><br></br>
+       <header className="header"> Charts Dashbord</header> <br></br><br></br>
       <Countries myprops={countries} />
-      <Map /> 
+  
       <Stock/>
       <Form/>
       <footer className="footer">
