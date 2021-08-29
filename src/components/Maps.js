@@ -1,25 +1,20 @@
 import React from "react";
+import { MapContainer as LeafletMap, TileLayer } from "react-leaflet";
 import "./Map.css";
-import { useState } from "react";
-import ReactMapGL from "react-map-gl";
-export default function Map() {
-  const [viewport, setViewport] = useState({
-    width: 2000,
-    height: 600,
-    latitude: 22.4877,
-    longitude: 77.0376,
-    zoom: 8,
-    pitch:40
-  });
+import { showDataOnMap } from "./Util";
+
+function Map({ countries, casesType, center, zoom }) {
   return (
     <div className="map">
-    <ReactMapGL
-      mapboxApiAccessToken={
-        "pk.eyJ1IjoiYWpheWRldiIsImEiOiJja3N2cXQzZmQxbDcyMzFwbm94ZnVxa2syIn0.gvwPvkEKuhpYvJsp4ATq4w"
-      }
-      mapStyle = {"mapbox://styles/mapbox/dark-v10"}
-      {...viewport}
-      onViewportChange={(nextViewport) => setViewport(nextViewport)}
-    /></div>
+      <LeafletMap center={center} zoom={zoom}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
+        {showDataOnMap(countries, casesType)}
+      </LeafletMap>
+    </div>
   );
 }
+
+export default Map;

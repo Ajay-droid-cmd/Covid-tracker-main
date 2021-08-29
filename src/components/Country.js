@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import Chart from '../charts/Chart';
-
+import Maps from "./Maps"
 const useStyles = makeStyles({
   grid: {
     marginTop: '10px',
@@ -78,6 +78,10 @@ const Country = (props) => {
   useEffect(() => {
     country();
   }, [props.country]);
+  // useEffect(() => {
+  //   country();
+
+  // },[lat,lon])
   const CovidData = {
     recoveredcases,
     activecases,
@@ -91,7 +95,7 @@ const Country = (props) => {
     100
   ).toFixed(2);
   //console.log(lat,lon);
-  props.degree(lat,lon);
+
 
   return (
     <Container>
@@ -169,6 +173,7 @@ const Country = (props) => {
       </Grid>
       <Chart data={CovidData} />
     </Container>
+
   );
 };
 

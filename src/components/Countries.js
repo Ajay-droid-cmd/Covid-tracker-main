@@ -3,6 +3,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { makeStyles, Select, Container } from "@material-ui/core";
 import Country from "./Country";
+import "./Map.css";
+import ReactMapGL from "react-map-gl";
+
 
 const useStyles = makeStyles({
   formControl: {
@@ -33,8 +36,7 @@ const Countries = (props) => {
   const [loaded, setloaded] = useState([]);
 
   const [countrychange, setcountrychange] = useState("");
-  const [lat, setlat] = useState('');
-  const [lon, setlon] = useState('');
+ 
   const countries = async () => {
     try {
       const res = await fetch(
@@ -51,16 +53,14 @@ const Countries = (props) => {
   useEffect(() => {
     countries();
   }, []);
-  const latlong =(lat,long) =>{
-    setlat(lat);
-    setlon(long);
-  }
+ 
   const onchangehandler = (e) => {
     setcountrychange(e.target.value);
   };
   useEffect(() => {
     props.myprops(countrychange);
   }, [countrychange]);
+
 
   return (
     <>
@@ -92,12 +92,14 @@ const Countries = (props) => {
           Please select a country from the dropdown.
         </h2>
       ) : (
-        <Country country={countrychange} degree={latlong}  />
+        <Country country={countrychange}   />
       )}
       <br></br>
       <br></br>
+     
     </>
   );
 };
 
 export default Countries;
+
